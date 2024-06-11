@@ -1,0 +1,7 @@
+tap "homebrew/bundle"
+
+brew "antidote"
+brew "mas"
+
+cask "font-meslo-for-powerlevel10k", greedy: true
+cask "visual-studio-code", greedy: true

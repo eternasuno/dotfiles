@@ -1,3 +1,21 @@
-- clean: []
-- link: {}
-- shell: []
+- defaults:
+    link:
+      create: true
+      relink: true
+      force: true
+
+- brewfile:
+  - brew/brewfile.work
+
+- link:
+    ~/.ssh/config: ssh/config
+    ~/.zshenv: zsh/zshenv
+    ~/.config/zsh/.p10k.zsh: zsh/p10k.zsh
+    ~/.config/zsh/.zprofile: zsh/zprofile
+    ~/.config/zsh/.zsh_plugins.txt: zsh/zsh_plugins.txt
+    ~/.config/zsh/.zshrc: zsh/zshrc
+
+- shell:
+  -
+    command: git submodule update --init --recursive
+    description: Installing submodules

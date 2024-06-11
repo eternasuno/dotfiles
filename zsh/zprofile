@@ -1,0 +1,7 @@
+setopt HIST_IGNORE_ALL_DUPS
+HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=1
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+export HOMEBREW_NO_ANALYTICS=1
+
+ssh-add ~/.ssh/id_rsa >/dev/null 2>&1 && 
