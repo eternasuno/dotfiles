@@ -4,8 +4,19 @@
       relink: true
       force: true
 
-- brewfile:
-  - brew/brewfile.work
+- shell:
+  -
+    command: git submodule update --init --recursive
+    description: Installing submodules
+  -
+    command: hash brew || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    description: Installing Homebrew
+  -
+    command: hash brew || eval "$(homebrew/bin/brew shellenv)"
+    description: Enable Homebrew
+  -
+    command: brew bundle --no-lock --verbose --file brew/brewfile
+    description: Installing apps
 
 - link:
     ~/.ssh/config: ssh/config
@@ -14,8 +25,3 @@
     ~/.config/zsh/.zprofile: zsh/zprofile
     ~/.config/zsh/.zsh_plugins.txt: zsh/zsh_plugins.txt
     ~/.config/zsh/.zshrc: zsh/zshrc
-
-- shell:
-  -
-    command: git submodule update --init --recursive
-    description: Installing submodules
